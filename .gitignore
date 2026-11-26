@@ -1,0 +1,13 @@
+git init
+git branch -M main
+
+$ignoreRules = @"
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+"@
+[System.IO.File]::WriteAllLines("$PWD\.gitignore", ($ignoreRules -split "`r?`n"))
